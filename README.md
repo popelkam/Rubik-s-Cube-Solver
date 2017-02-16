@@ -1,0 +1,2 @@
+## Steps for Solving the Cube
+You can view the different stages we are using for solving the Rubik's cube at a [blog post](https://www.rubiks.com/blog/how-to-solve-the-rubiks-cube) on the official Rubik's Cube website.
