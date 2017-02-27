@@ -16,8 +16,8 @@ upper = np.array([15, 255, 255],np.uint8)
 #upper = np.array([10,255,255],np.uint8)
 
 #GREEN
-#lower = np.array([35,75,100],np.uint8)
-#upper = np.array([100,255,190],np.uint8)
+##lower = np.array([35,75,100],np.uint8)
+##upper = np.array([100,255,190],np.uint8)
 
 #YELLOW
 #lower = np.array([20,100,100],np.uint8)
