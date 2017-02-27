@@ -1,5 +1,6 @@
 from visual import *
 
+
 print("""
 Right button drag or Ctrl-drag to rotate "camera" to view scene.
 Middle button or Alt-drag to drag up or down to zoom in or out.
@@ -7,7 +8,7 @@ Middle button or Alt-drag to drag up or down to zoom in or out.
 """)
 
 side = 4.0
-thk = 0.3
+thk = 0.01
 s2 = 2*side - thk
 s3 = 2*side + thk
 wallR = box (pos=( side, 0, 0), size=(thk, s2, s3),  color = (1,0,0), material=materials.emissive)
