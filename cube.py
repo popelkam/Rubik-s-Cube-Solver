@@ -1,3 +1,10 @@
+"""
+file: cube.py
+author: Richard Roberts
+Desc: a rubiks cube
+"""
+
+
 from side import Side
 
 class Cube(Side):
@@ -271,10 +278,29 @@ class Cube(Side):
     
 #####################################################################
 
-        
-        
+    def __str__(self):
+        aString = ""
+        aString += "*"*40
+        aString += "\nfront:\n" + str(self.getFront())
+        aString += "\nright:\n" + str(self.getRight())
+        aString += "\nleft:\n" + str(self.getLeft())
+        aString += "\ntop:\n" + str(self.getTop())
+        aString += "\nbottom:\n" + str(self.getBottom())
+        aString += "\nback:\n" + str(self.getBack())
+        return aString
 
+    def rollRight(self):
+        pass
 
+    def rollLeft(self):
+        pass
 
+    def rollUp(self):
+        pass
 
-        
+    def rollDown(self):
+        pass
+
+    def orientCube(self, topColor, frontColor):
+        pass
+    
