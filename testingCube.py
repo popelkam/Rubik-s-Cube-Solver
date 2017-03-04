@@ -1,21 +1,26 @@
 from side import Side
 from cube import Cube
 
-def main():
-    cube = initCube()
 
-    print("*"*40)
-    print("INITIAL CUBE STATE:")
-    printCube(cube)
+"""
+commented out main method, only used for testing
+"""
 
-    print("*"*40)
-    cube.bottomTurn()
-    print("CUBE AFTER 'bottomTurn':")
-    printCube(cube)
-
-    cube.bottomInvert()
-    print("CUBE AFTER 'bottomInvert':")
-    printCube(cube)
+##def main():
+##    cube = initCube()
+##
+##    print("*"*40)
+##    print("INITIAL CUBE STATE:")
+##    printCube(cube)
+##
+##    print("*"*40)
+##    cube.bottomTurn()
+##    print("CUBE AFTER 'bottomTurn':")
+##    printCube(cube)
+##
+##    cube.bottomInvert()
+##    print("CUBE AFTER 'bottomInvert':")
+##    printCube(cube)
 
 
 def initCube():
@@ -59,4 +64,3 @@ def printCube(cube):
     print("\nback:\n" + str(cube.getBack()))
     
     
-main()
