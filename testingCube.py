@@ -6,17 +6,16 @@ def main():
 
     print("*"*40)
     print("INITIAL CUBE STATE:")
-    printCube(cube)
+    print(cube)
 
     print("*"*40)
-    cube.bottomTurn()
-    print("CUBE AFTER 'bottomTurn':")
-    printCube(cube)
+    cube.orientCube("yellow","orange")
+    print("CUBE AFTER 'orientCube(yellow, orange':")
+    print(cube)
 
-    cube.bottomInvert()
-    print("CUBE AFTER 'bottomInvert':")
-    printCube(cube)
-
+    cube.orientCube("white","red")
+    print("CUBE AFTER 'orientCube(white,red)':")
+    print(cube)
 
 def initCube():
     aSide = makeSide("white")
@@ -58,5 +57,4 @@ def printCube(cube):
     print("\nbottom:\n" + str(cube.getBottom()))
     print("\nback:\n" + str(cube.getBack()))
     
-    
-main()
+main()    

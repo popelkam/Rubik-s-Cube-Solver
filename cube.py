@@ -1,3 +1,10 @@
+"""
+file: cube.py
+author: Richard Roberts
+Desc: a rubiks cube
+"""
+
+
 from side import Side
 
 class Cube(Side):
@@ -271,10 +278,122 @@ class Cube(Side):
     
 #####################################################################
 
+    def __str__(self):
+        aString = ""
+        aString += "*"*40
+        aString += "\nfront:\n" + str(self.getFront())
+        aString += "\nright:\n" + str(self.getRight())
+        aString += "\nleft:\n" + str(self.getLeft())
+        aString += "\ntop:\n" + str(self.getTop())
+        aString += "\nbottom:\n" + str(self.getBottom())
+        aString += "\nback:\n" + str(self.getBack())
+        return aString
+
+####################################################################
+    def rollRight(self):
+        #rotate front
+        self.front.rotateRight()
         
+        #rotate back
+        self.back.rotateLeft()
         
-
-
-
-
+        #save topSide
+        savedSide = Side()
+        savedSide.setTopLeft(self.top.getTopLeft())
+        savedSide.setTopCenter(self.top.getTopCenter())
+        savedSide.setTopRight(self.top.getTopRight())
+        savedSide.setMiddleLeft(self.top.getMiddleLeft())
+        savedSide.setMiddleCenter(self.top.getMiddleCenter())
+        savedSide.setMiddleRight(self.top.getMiddleRight())
+        savedSide.setBottomLeft(self.top.getBottomLeft())
+        savedSide.setBottomCenter(self.top.getBottomCenter())
+        savedSide.setBottomRight(self.top.getBottomRight())
         
+        #move left to top
+        self.setTop(self.getLeft())
+        self.top.rotateRight()
+        
+        #move bottom to left
+        self.setLeft(self.getBottom())
+        self.left.rotateRight()
+        
+        #move right to bottom
+        self.setBottom(self.getRight())
+        self.bottom.rotateRight()
+        
+        #move saved top to right
+        self.setRight(savedSide)
+        self.right.rotateRight()
+
+####################################################################
+    def rollLeft(self):
+        self.rollRight()
+        self.rollRight()
+        self.rollRight()
+
+####################################################################
+
+    def rollUp(self):
+        #rotate left
+        self.left.rotateLeft()
+        
+        #rotate right
+        self.right.rotateRight()
+
+        #save topSide
+        savedSide = Side()
+        savedSide.setTopLeft(self.top.getTopLeft())
+        savedSide.setTopCenter(self.top.getTopCenter())
+        savedSide.setTopRight(self.top.getTopRight())
+        savedSide.setMiddleLeft(self.top.getMiddleLeft())
+        savedSide.setMiddleCenter(self.top.getMiddleCenter())
+        savedSide.setMiddleRight(self.top.getMiddleRight())
+        savedSide.setBottomLeft(self.top.getBottomLeft())
+        savedSide.setBottomCenter(self.top.getBottomCenter())
+        savedSide.setBottomRight(self.top.getBottomRight())
+        
+        #move front to top
+        self.setTop(self.getFront())
+        
+        #move bottom to front
+        self.setFront(self.getBottom())
+        
+        #move back to bottom
+        self.setBottom(self.getBack())
+        self.bottom.rotateRight()
+        self.bottom.rotateRight()
+        
+        #move saved top to back
+        self.setBack(savedSide)
+        self.back.rotateRight()
+        self.back.rotateRight()
+
+
+####################################################################
+
+    def rollDown(self):
+        self.rollUp()
+        self.rollUp()
+        self.rollUp()
+
+####################################################################
+
+    def orientCube(self, topColor, frontColor):
+        #setting the front color
+        frontCounter = 0
+        while frontColor.lower() not in self.front.getMiddleCenter().lower():
+            if frontCounter  == 3:
+                frontCounter = 0
+                self.rollRight()
+            else:
+                self.rollUp()
+                frontCounter += 1
+                
+        #setting the top color
+        topCounter = 0
+        while topColor.lower() not in self.top.getMiddleCenter().lower():
+            self.rollRight()
+            topCounter += 1
+            if topCounter == 5:
+                break
+    
