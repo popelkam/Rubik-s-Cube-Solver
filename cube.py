@@ -122,7 +122,7 @@ class Cube(Side):
         self.front.setBottomLeft(bottomLeft)
         
         #rotating left side tiles
-        self.left.roateRight()
+        self.left.rotateRight()
 
 #####################################################################
 
