@@ -4,7 +4,7 @@ author: Richard Roberts
 Desc: a rubiks cube
 """
 
-
+import sys
 from side import Side
 
 class Cube(Side):
@@ -379,6 +379,39 @@ class Cube(Side):
 ####################################################################
 
     def orientCube(self, topColor, frontColor):
+        topColor = topColor.lower()
+        frontColor = frontColor.lower()
+        if topColor == 'white' and frontColor == "yellow":
+            print("white and yellow are opposites."\
+                     "recheck top and front colors."\
+                     "exiting program.")
+            sys.exit()
+        elif topColor == 'yellow' and frontColor == 'white':
+            print("white and yellow are opposites."\
+                     "recheck top and front colors."\
+                     "exiting program.")
+            sys.exit()
+        elif topColor == 'green' and frontColor == 'blue':
+            print("green and blue are opposites."\
+                     "recheck top and front colors."\
+                     "exiting program.")
+            sys.exit()
+        elif topColor == 'blue' and frontColor == 'green':
+            print("green and blue are opposites."\
+                     "recheck top and front colors."\
+                     "exiting program.")
+            sys.exit()
+        elif topColor == 'orange' and frontColor == 'red':
+            print("orange and red are opposites."\
+                     "recheck top and front colors."\
+                     "exiting program.")
+            sys.exit()
+        elif topColor == 'red' and frontColor == 'orange':
+            print("orange and red are opposites."\
+                     "recheck top and front colors."\
+                     "exiting program.")
+            sys.exit()
+            
         #setting the front color
         frontCounter = 0
         while frontColor.lower() not in self.front.getMiddleCenter().lower():
