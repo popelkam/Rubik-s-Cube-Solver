@@ -10,6 +10,7 @@ import random
 
 def solveWhiteCrossTester():
     cube = initCube()
+    file = open("WhiteCrossTestFile.txt","w")
 
 ##    print(findEdge('white2', cube))
 ##    print(findEdge('white4', cube))
@@ -36,10 +37,11 @@ def solveWhiteCrossTester():
 ##    print(findEdge('white8', cube))
 ##    findEdge('white8', cube) == cube.getRight()
 
-    solveWhiteCross(cube)
+    solveWhiteCross(cube, file)
     print("*"*40)
     print("WHITE CROSS SOVLED CUBE STATE:")
     printCube(cube)
+    file.close()
 
 def messUpCube(cube):
     random.seed()

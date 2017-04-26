@@ -11,6 +11,7 @@ import random
 
 def solveMiddleLayerTester():
     cube = initCube()
+    file = open("MiddleLayerTestFile.txt","w")
 
     print("*"*40)
     print("INITIAL CUBE STATE:")
@@ -21,15 +22,17 @@ def solveMiddleLayerTester():
     print("PRE-SOLVE CUBE STATE:")
     printCube(cube)
 
-    solveWhiteCross(cube)
+    solveWhiteCross(cube, file)
     print("*"*40)
     print("WHITE CROSS SOVLED CUBE STATE:")
     printCube(cube)
 
-    solveMiddleLayer(cube)
+    solveMiddleLayer(cube, file)
     print("*"*40)
     print("MIDDLE LAYER SOVLED CUBE STATE:")
     printCube(cube)
+    
+    file.close()
 
 def messUpCube(cube):
     random.seed()
